@@ -53,3 +53,7 @@ Step 1: Select the "Switch View" tool (the white cube icon).
 Step 2: A dropdown will appear. Select the "3D mode" option.
 
 Step 3: To move around in 3D, use Shift + Middle Mouse, or Shift + \ to pan, Middle Mouse or \ to rotate, and Scroll Wheel or Drag with Two Fingers to zoom in and out.
+
+## Boring Legal Stuff
+
+This project is licensed with the MIT license.
