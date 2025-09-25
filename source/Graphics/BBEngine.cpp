@@ -1,5 +1,6 @@
 #include <BBEngine.hpp>
 #include <math.h>
+#include <stdio.h>
 
 LRESULT CALLBACK BBApplication::wndProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam) {
 	switch(umsg) {
@@ -27,9 +28,8 @@ void BBApplication::Run() {
 	wc.lpfnWndProc = wndProc;
 	wc.hInstance = GetModuleHandleW(NULL);
 	RegisterClassExW(&wc);
-	hwnd = CreateWindowExW(0, L"BuildingBuilderWC", title.english, WS_OVERLAPPEDWINDOW | WS_MAXIMIZE, CW_USEDEFAULT, 0, 1280, 720, NULL, NULL, GetModuleHandleW(NULL), NULL);
+	hwnd = CreateWindowExW(0, L"BuildingBuilderWC", title.english, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 0, 1280, 720, NULL, NULL, GetModuleHandleW(NULL), NULL);
 	ShowWindow(hwnd, 1);
-
 	while (msg.message != WM_QUIT) {
 		while (PeekMessageW(&msg, NULL, 0, 0, PM_REMOVE)) {
 			TranslateMessage(&msg);

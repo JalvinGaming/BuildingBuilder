@@ -2,6 +2,7 @@
 #include <BBEngine.hpp>
 BBApplication* bb;
 int main() {
+	bb = new BBApplication();
 	bb->Run();
 	return 0;
 }
