@@ -4,6 +4,7 @@
 #endif
 #include <windows.h>
 #include <d3d11.h>
+#include <d2d1_1.h>
 #include <dxgi.h>
 #include <CommonStates.h>
 #include <DirectXMath.h>
@@ -23,7 +24,10 @@ class BBApplication {
 		MSG msg = {};
 		ID3D11Device* dev;
 		ID3D11DeviceContext* ctx;
+		IDXGIFactory* fac;
 		IDXGISwapChain* sc;
+		IDXGIDevice* dxdev;
+		ID2D1Device* tdev;
 
 		ID3D11RenderTargetView* rtv;
 		ID3D11DepthStencilView* dsv;
