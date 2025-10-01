@@ -8,6 +8,7 @@
 #include <dxgi.h>
 #include <CommonStates.h>
 #include <DirectXMath.h>
+#include <stdint.h>
 
 struct KeyboardBitmask {
 	unsigned char bytes[32];
@@ -16,6 +17,11 @@ struct KeyboardBitmask {
 struct TranslatableString {
 	const wchar_t *english, *irish, *japanese;
 
+};
+
+enum BB_TOPOLOGY_MODE {
+	BB_TRIANGLE = 0,
+	BB_WIREFRAME = 1
 };
 
 class BBGraphicsUnit {
@@ -31,6 +37,25 @@ class BBGraphicsUnit {
 		ID3D11DepthStencilView* depthStencil;
 
 		DirectX::CommonStates* commonStates;
+
+		ID3D11VertexShader* currentVS;
+		ID3D11PixelShader* currentPS;
+
+		ID3D11Buffer* currentVBO;
+		uint8_t sizeVertex;
+		uint32_t numVertices;
+		BB_TOPOLOGY_MODE topology;
+
+		ID3D11Buffer* currentEBO;
+		uint32_t numIndices;
+
+		ID3D11Buffer** currentCBOs;
+		uint8_t numCBOs;
+
+		ID3D11ShaderResourceView** currentSRVs;
+		uint8_t numSRVs;
+
+		void Draw();
 };
 
 class BBApplication {
