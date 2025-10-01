@@ -18,24 +18,30 @@ struct TranslatableString {
 
 };
 
+class BBGraphicsUnit {
+	public:
+		ID3D11Device* device;
+		ID3D11DeviceContext* context;
+		IDXGIFactory* dxgiFactory;
+		IDXGISwapChain* swapChain;
+		IDXGIDevice* dxgiDevice;
+		ID2D1Device* d2dDevice;
+
+		ID3D11RenderTargetView* renderTarget;
+		ID3D11DepthStencilView* depthStencil;
+
+		DirectX::CommonStates* commonStates;
+};
+
 class BBApplication {
 	public:
 		HWND hwnd;
 		MSG msg = {};
-		ID3D11Device* dev;
-		ID3D11DeviceContext* ctx;
-		IDXGIFactory* fac;
-		IDXGISwapChain* sc;
-		IDXGIDevice* dxdev;
-		ID2D1Device* tdev;
-
-		ID3D11RenderTargetView* rtv;
-		ID3D11DepthStencilView* dsv;
-
-		DirectX::CommonStates* cs;
 
 		KeyboardBitmask keyboard = {};
 		const TranslatableString title = {L"Building Builder", L"Tógálaí Túr", L"建物造り手"};
+
+		BBGraphicsUnit* gpu;
 
 		bool isKeyPressed(const unsigned char key);
 		static LRESULT CALLBACK wndProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam);
