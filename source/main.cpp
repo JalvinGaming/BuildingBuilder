@@ -4,5 +4,6 @@ BBApplication* bb;
 int main() {
 	bb = new BBApplication();
 	bb->Run();
+	delete bb;
 	return 0;
 }

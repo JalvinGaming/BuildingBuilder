@@ -1,2 +1,2 @@
-cl /EHs /I"lib/DirectXTK-main/Inc" /I"include" /std:c++17 source/*.cpp source/Graphics/*.cpp /link /libpath:"lib" d3d11.lib dxgi.lib directxtk.lib user32.lib /out:"build/BuildingBuilder.exe"
+cl /EHsc /MDd /Zi /I"lib/DirectXTK-main/Inc" /I"include" /std:c++17 source/*.cpp source/Graphics/*.cpp /link /DEBUG /libpath:"lib/DirectXTK-main/Bin/Desktop_2022/x64/Debug" DirectXTK.lib d3d11.lib dxgi.lib d2d1.lib user32.lib /out:"build/BuildingBuilder.exe"
 del *.obj
