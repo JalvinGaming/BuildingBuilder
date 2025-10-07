@@ -47,6 +47,7 @@ class BBShaderProgram {
 		ID3D11VertexShader* vertexShader;
 		ID3D11PixelShader* pixelShader;
 
+		// Provide shader code in HLSL.
 		BBShaderProgram(const wchar_t* vsCode, const wchar_t* psCode);
 };
 
